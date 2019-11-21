@@ -1,0 +1,8 @@
+    - name: install debian/APT specific packages
+      apt: pkg={{item}} state=latest update_cache=false
+      with_items:
+       - php 
+       - libapache2-mod-php 
+       - php-mysql
+       - apache2
+             

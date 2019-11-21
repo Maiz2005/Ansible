@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: Safe Upgrade
+      apt:  upgrade=safe  update_cache=true
+  become: true

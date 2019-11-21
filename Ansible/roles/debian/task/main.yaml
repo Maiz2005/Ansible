@@ -1,0 +1,13 @@
+    - name: copy APT sources list
+      copy: src={{ansible_distribution_release}}-sources.list dest=/etc/apt/sources.list
+            owner=root mode=644 force=yes
+
+    - name: update apt list
+      apt: update-cache=yes 
+
+    - name: Update Debian
+      apt:  upgrade=safe  update_cache=false
+      when:
+        ansible_os_family == "Debian"
+        or
+        ansible_os_family == "Ubuntu"
